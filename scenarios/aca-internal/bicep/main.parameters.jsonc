@@ -11,7 +11,10 @@
       "value": "dev"
     },
     "tags": {
-        "value": {}
+        "value": {
+        "environment": "dev",
+        "project": "container"
+      }
     },
     "enableTelemetry": {
       "value": true

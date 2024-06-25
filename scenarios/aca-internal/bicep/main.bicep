@@ -260,20 +260,6 @@ module applicationGateway 'modules/06-application-gateway/deploy.app-gateway.bic
   }
 }
 
-module frontDoor 'modules/06-front-door/deploy.front-door.bicep' = if (deployHelloWorldSample) {
-  name: take('frontDoor-${deployment().name}-deployment', 64)
-  scope: spokeResourceGroup
-  params: {
-    location: location
-    tags: tags
-    environment: environment
-    workloadName: workloadName
-    containerAppsEnvironmentId: containerAppsEnvironment.outputs.containerAppsEnvironmentId
-    privateLinkSubnetId: spoke.outputs.spokeInfraSubnetId
-    frontDoorOriginHostName: helloWorlSampleApp.outputs.helloWorldAppFqdn
-  }
-}
-
 // ------------------
 // OUTPUTS
 // ------------------

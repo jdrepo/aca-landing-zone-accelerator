@@ -261,7 +261,7 @@ module applicationGateway 'modules/06-application-gateway/deploy.app-gateway.bic
 }
 
 module frontDoor 'modules/06-front-door/deploy.front-door.bicep' = if (deployHelloWorldSample) {
-  name: take('applicationGateway-${deployment().name}-deployment', 64)
+  name: take('frontDoor-${deployment().name}-deployment', 64)
   scope: spokeResourceGroup
   params: {
     location: location

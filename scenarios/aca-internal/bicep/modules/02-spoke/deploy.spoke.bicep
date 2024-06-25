@@ -90,7 +90,8 @@ param deployAzurePolicies bool = true
 // ------------------
 
 //Destination Service Tag for AzureCloud for Central France is centralfrance, but location is francecentral
-var locationVar = location == 'francecentral' ? 'centralfrance' : location
+var locationVar = location == 'francecentral' ? 'centralfrance' : location == 'germanywestcentral' ? 'germanywc' : location
+
 
 // load as text (and not as Json) to replace <location> placeholder in the nsg rules
 var nsgCaeRules = json( replace( loadTextContent('./nsgContainerAppsEnvironment.jsonc') , '<location>', locationVar) )
